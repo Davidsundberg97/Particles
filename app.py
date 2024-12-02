@@ -105,15 +105,8 @@ def main():
         else:
             particle_color = (255, 215, 0)
 
-        # Debug print to verify selected color
-        print(f"Selected color: {selected_color}, RGB: {particle_color}")
-
-        # Generate new particles at mouse position
-        for _ in range(particle_count):
-            particles.append(Particle(mouse_x, mouse_y, particle_size, particle_color))
-
-        # Generate new particles at fire positions
-        for pos in fire_positions:
+        # Generate new particles at mouse position and fire positions
+        for pos in [(mouse_x, mouse_y)] + fire_positions:
             for _ in range(particle_count):
                 particles.append(Particle(pos[0], pos[1], particle_size, particle_color))
 
